@@ -1,0 +1,61 @@
+[{
+    "ruleArn": "arn:aws:iot:us-west-2:209593679102:rule/rule_to_db", 
+    "rule": {
+        "description": "", 
+        "ruleName": "rule_to_db", 
+        "actions": [
+            {
+                "dynamoDB": {
+                    "payloadField": "payload", 
+                    "hashKeyType": "STRING", 
+                    "hashKeyField": "id", 
+                    "roleArn": "arn:aws:iam::209593679102:role/service-role/fggfh", 
+                    "tableName": "data", 
+                    "hashKeyValue": "temperature", 
+                    "operation": "INSERT"
+                }
+            }
+        ], 
+        "createdAt": 1658217021.0, 
+        "sql": "SELECT * FROM \"lab/pressure_data\"", 
+        "awsIotSqlVersion": "2016-03-23", 
+        "ruleDisabled": false
+    }
+},
+
+{
+    "ruleArn": "arn:aws:iot:us-west-2:209593679102:rule/pressure_rule", 
+    "rule": {
+        "ruleName": "pressure_rule", 
+        "actions": [
+            {
+                "lambda": {
+                    "functionArn": "arn:aws:lambda:us-west-2:209593679102:function:pressure_lambda"
+                }
+            }
+        ], 
+        "createdAt": 1641898290.0, 
+        "sql": "SELECT * FROM \"lab/pressure_data\"", 
+        "awsIotSqlVersion": "2016-03-23", 
+        "ruleDisabled": false
+    }
+},
+
+{
+    "ruleArn": "arn:aws:iot:us-west-2:209593679102:rule/temp_rule", 
+    "rule": {
+        "ruleName": "temp_rule", 
+        "actions": [
+            {
+                "lambda": {
+                    "functionArn": "arn:aws:lambda:us-west-2:209593679102:function:temperature_lambda"
+                }
+            }
+        ], 
+        "createdAt": 1624346990.0, 
+        "sql": "SELECT * FROM \"lab/temp_data\"", 
+        "awsIotSqlVersion": "2016-03-23", 
+        "ruleDisabled": false
+    }
+}
+]
