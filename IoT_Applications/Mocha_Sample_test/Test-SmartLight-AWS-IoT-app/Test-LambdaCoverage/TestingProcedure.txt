@@ -1,0 +1,20 @@
+Identify the Observable Behavior: 
+Start by identifying the observable behavior or expected outcomes of lambda1(DeviceData_Lambda) based on the event information, that we have obtained with testcase from LambdaCoverage, 
+like where the event(source(sensor data/HTTP))that triggered the Lambda. 
+What does lambda1 do with the event? What are the expected side effects or responses?(by manual analysis of Lambda source code and logs)
+
+Test Scenarios: Create test scenarios based on the observable behavior. 
+These scenarios should cover different cases or conditions that lambda1 might encounter based on the event. 
+For example, you can create test scenarios for different values of uv_visible if that's the primary input.
+
+Mock Dependencies: 
+If lambda1 interacts with external services or AWS services, you may need to mock those interactions using libraries like aws-sdk-mock or stubs/spies if the Lambda function uses other JavaScript modules. 
+This allows you to control the behavior of external services during testing.
+
+Invoke the Lambda Function: 
+Invoke lambda1 with the test event for each scenario you've defined. 
+Capture any outputs or responses that the Lambda function produces.
+
+Assertions: Write assertions based on the expected behavior of lambda1. 
+These assertions should check whether the Lambda function behaves as expected for each scenario. 
+we may need to check the response, logs, or any other observable outputs.
